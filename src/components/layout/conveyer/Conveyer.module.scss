@@ -1,0 +1,30 @@
+@import "../../../../styles/utilities/colors";
+
+.ConveyerWrapper {
+  position: relative;
+  top: 32px;
+  width: 100%;
+  background: $black-75;
+  border-top: 1px lighten($black-50, 10%) solid;
+  border-bottom: 1px lighten($black-50, 10%) solid;
+
+  transform: rotate(-1deg);
+  margin-bottom: 60px;
+}
+
+@keyframes leftRight {
+  from {
+    transform: translate3d(-100px, 0px, 0px);
+  }
+  to {
+    transform: translate3d(500px, 0px, 0px);
+  }
+}
+.Conveyer {
+  white-space: nowrap;
+  animation-name: leftRight;
+  animation-duration: 30000ms;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}

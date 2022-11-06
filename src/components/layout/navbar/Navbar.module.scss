@@ -1,0 +1,110 @@
+@import "../../../../styles/utilities/colors";
+
+//Add in toolbar if you need the navbar to displace
+.toolbar {
+  //   height: 60px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+
+  position: relative;
+  left: 0px;
+  top: 0px;
+
+  width: 100%;
+  height: 60px;
+  background-color: $edgy-white;
+
+  z-index: 1;
+}
+
+.navbarFlexbox {
+  width: 100%;
+  // max-width: 1400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 60px;
+}
+
+//All CSS used for burger button.
+.navBurgerButton {
+  padding-top: 15px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+%burgerBase {
+  width: 24px;
+  height: 1.5px;
+  background-color: $black;
+  border-radius: 2px;
+  position: relative;
+  transition: all 0.5s ease-in-out, background-color 0.3s ease-in-out;
+}
+.navBurgerBar {
+  @extend %burgerBase;
+
+  &::before {
+    @extend %burgerBase;
+    content: "";
+    width: 32px;
+    position: absolute;
+    transform: translateY(-10px);
+  }
+  &::after {
+    @extend %burgerBase;
+    content: "";
+    width: 16px;
+    position: absolute;
+    transform: translateY(10px);
+  }
+}
+.navDrawerOpen {
+  background: transparent;
+  transform: translateX(-50px);
+
+  &::before {
+    transform: rotate(45deg) translate(35px, -35px);
+    background: $black;
+  }
+  &::after {
+    transform: rotate(-45deg) translate(35px, 35px);
+    background: $black;
+  }
+}
+
+.navName {
+  font-size: 21px;
+  color: $accent-color-1;
+}
+.navIcons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-basis: 120px;
+}
+.navLinks {
+  padding-top: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 80px;
+  font-size: 14px;
+  .navLinksLine {
+    display: flex;
+    justify-content: center;
+    width: 32px;
+    div {
+      width: 1px;
+      height: 32px;
+      border-left: 1px black solid;
+      border-color: $black-50;
+    }
+  }
+}

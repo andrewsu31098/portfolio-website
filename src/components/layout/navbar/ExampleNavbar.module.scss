@@ -1,0 +1,161 @@
+@import "../../../../styles/utilities/_colors.scss";
+@import "../../../../styles/utilities/_breakpoints.scss";
+
+//Add in toolbar if you need the navbar to displace
+.toolbar {
+  height: 60px;
+}
+
+//Navbar looks different based on whether scrolling or mobile.
+.navContainer {
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $primary-color;
+  padding-inline: 60px;
+  transition: background-color 0.2s ease-in-out;
+  /* Force the navbar to stay fixed to the upper left corner */
+  left: 0px;
+  top: 0px;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-basis: 1100px;
+  height: 60px;
+}
+
+.navLinks {
+  display: flex;
+  justify-content: space-between;
+  flex: 0 1 600px;
+}
+
+.navThreeBlocks {
+  color: white;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex: 0 1 600px;
+}
+
+.navPages {
+  display: flex;
+  padding: 10px;
+  a {
+    margin-inline: 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+  a:hover {
+    color: $secondary-color;
+  }
+
+  .tabSelected {
+    a {
+      color: $secondary-color;
+    }
+    border-bottom: 1px $secondary-color solid;
+  }
+}
+
+.navBurgerButton {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+%burgerBase {
+  width: 40px;
+  height: 6px;
+  background-color: white;
+  border-radius: 5px;
+  position: relative;
+  transition: all 0.5s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.navBurgerBar {
+  @extend %burgerBase;
+
+  &::before {
+    @extend %burgerBase;
+    content: "";
+    position: absolute;
+    transform: translateY(-10px);
+  }
+  &::after {
+    @extend %burgerBase;
+    content: "";
+    position: absolute;
+    transform: translateY(10px);
+  }
+}
+
+.openButton {
+  background: transparent;
+  transform: translateX(-50px);
+
+  &::before {
+    transform: rotate(45deg) translate(35px, -35px);
+    background: white;
+  }
+  &::after {
+    transform: rotate(-45deg) translate(35px, 35px);
+    background: white;
+  }
+}
+
+.dropDownMenu {
+  background-color: $primary-color-light;
+  position: fixed;
+  top: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  z-index: 900;
+  div {
+    display: flex;
+    justify-content: center;
+    a {
+      display: flex;
+      justify-content: center;
+      line-height: 3rem;
+      border-block: 1px $primary-color solid;
+      flex-basis: 800px;
+    }
+  }
+  .burgerTabSelected {
+    background-color: lighten($primary-color, 20%);
+  }
+
+  top: -300px;
+  transition: height 0.5s ease-in-out, top 0.5s ease-in-out;
+}
+
+.openMenu {
+  top: 60px;
+}
+
+// Dampen screen when menu drawer slides down.
+.cloak {
+  position: fixed;
+  z-index: 800;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.reactIcon:hover {
+  color: $secondary-color !important;
+}
