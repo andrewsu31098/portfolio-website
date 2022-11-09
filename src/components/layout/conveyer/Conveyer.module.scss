@@ -1,4 +1,33 @@
 @import "../../../../styles/utilities/colors";
+@import "../../../../styles/utilities/breakpoints";
+
+.Container {
+  position: relative;
+
+  .Overlay {
+    position: absolute;
+    top: 40px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    z-index: -10;
+    font-size: 4rem;
+    @include laptop-breakpoint-down {
+      font-size: 3rem;
+    }
+    @include tablet-breakpoint-down {
+      font-size: 2rem;
+      top: 48px;
+    }
+    @include mobile-breakpoint-down {
+      font-size: 2rem;
+      white-space: nowrap;
+
+      top: 56px;
+    }
+  }
+}
 
 .ConveyerWrapper {
   position: relative;
@@ -9,7 +38,20 @@
   border-bottom: 1px lighten($black-50, 10%) solid;
 
   transform: rotate(-1deg);
-  margin-bottom: 60px;
+  margin-bottom: 240px;
+
+  @include desktop-breakpoint-down {
+    margin-bottom: 160px;
+  }
+
+  .Conveyer {
+    white-space: nowrap;
+    animation-name: leftRight;
+    animation-duration: 30000ms;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+  }
 }
 
 @keyframes leftRight {
@@ -19,12 +61,4 @@
   to {
     transform: translate3d(500px, 0px, 0px);
   }
-}
-.Conveyer {
-  white-space: nowrap;
-  animation-name: leftRight;
-  animation-duration: 30000ms;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  animation-timing-function: linear;
 }
