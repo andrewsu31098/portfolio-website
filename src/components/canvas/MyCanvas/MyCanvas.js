@@ -57,7 +57,7 @@ function clickMe(event) {
 
 function MyCanvas(props) {
   return (
-    <div className={styles.Canvas}>
+    <div className={styles.Canvas} id="home">
       <Overlay />
       <Canvas>
         <fog attach="fog" near={6} far={6} color="#505050" />

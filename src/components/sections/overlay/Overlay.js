@@ -1,6 +1,13 @@
 import styles from "./Overlay.module.scss";
 import { SlArrowDown } from "react-icons/sl";
 
+function smoothScroll() {
+  var html = document.documentElement;
+  html.style.scrollBehavior = "smooth";
+  document.getElementById("about").scrollIntoView();
+  html.style.scrollBehavior = "";
+}
+
 export default function Overlay(props) {
   return (
     <div className={styles.Overlay}>
@@ -36,10 +43,7 @@ export default function Overlay(props) {
         <span>N</span>
       </p>
       <div className={styles.arrowDown}>
-        <a
-          onClick={() => console.log("it definitely clicked")}
-          href="#getStarted"
-        >
+        <a onClick={smoothScroll}>
           <SlArrowDown className={styles.reactIcon} />
           <SlArrowDown className={styles.reactIcon} />
         </a>

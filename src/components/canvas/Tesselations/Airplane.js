@@ -18,7 +18,7 @@ export default function Airplane(props) {
         mesh.current.rotation.z = coords.rz;
       })
       .onComplete(function () {
-        noiseFly(2.5, 2.2, 4.5);
+        noiseFly(2.5, 2.2, 3.1);
         heightFly(catCurve.getPointAt(1).x, catCurve.getPointAt(1).y);
       });
     tmpTween.start();
@@ -67,19 +67,19 @@ export default function Airplane(props) {
 
   // GUI
   const myObject = { t: 0, zRotate: Math.PI };
-  const gui = new GUI();
-  useEffect(() => {
-    if (mesh.current) {
-      gui.add(myObject, "t", 0, 1);
-      gui.add(myObject, "zRotate", 0, 2 * Math.PI);
-    }
-  }, [mesh]);
+  // const gui = new GUI();
+  // useEffect(() => {
+  //   if (mesh.current) {
+  //     gui.add(myObject, "t", 0, 1);
+  //     gui.add(myObject, "zRotate", 0, 2 * Math.PI);
+  //   }
+  // }, [mesh]);
 
   // TWEEN Animation Control
 
   useEffect(() => {
     const startTween = new TWEEN.Tween({ t: 0 })
-      .to({ t: 0.5 }, 2500)
+      .to({ t: 0.5 }, 1500)
       .onUpdate((coords) => {
         myObject.t = coords.t;
       })
@@ -97,7 +97,7 @@ export default function Airplane(props) {
       .easing(TWEEN.Easing.Exponential.Out);
 
     const loop2Tween = new TWEEN.Tween({ t: 0.7 })
-      .to({ t: 0.9 }, 1000)
+      .to({ t: 0.9 }, 750)
       .onUpdate((coords) => {
         myObject.t = coords.t;
       });

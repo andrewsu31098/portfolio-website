@@ -1,0 +1,236 @@
+@import "../../../../styles/utilities/colors";
+@import "../../../../styles/utilities/breakpoints";
+
+.MenuButton {
+  position: fixed;
+  right: calc(100vw / 24);
+  top: calc(100vh / 48);
+  font-size: 2.5rem;
+  color: white;
+  z-index: 30;
+}
+
+.MenuOverlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: lighten($black-75, 30%);
+  top: -100vh;
+  z-index: 50;
+  transition: top 1s cubic-bezier(0.35, 1.28, 0.62, -0.32) 1.5s;
+
+  &.Clicked {
+    // top: 0vh;
+  }
+}
+
+.MenuGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 60;
+
+  color: $black;
+
+  opacity: 0;
+  pointer-events: none;
+  &.Clicked {
+    // This part makes the grid border visible.
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  %GridItem {
+    border: 1px rgba(0, 0, 0, 0.1) solid;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 32px;
+    font-size: 6rem;
+    color: lighten($black-75, 15%);
+
+    @include tablet-breakpoint-down {
+      font-size: 2rem;
+    }
+
+    a {
+      width: 100%;
+      height: 100%;
+    }
+
+    // Controls Slide-Up Text Default
+    .WordWrapper {
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      height: 80%;
+    }
+  }
+  .Empty {
+    @extend %GridItem;
+    grid-row: 1/13;
+    grid-column: 1/2;
+  }
+  .Home {
+    @extend %GridItem;
+    grid-row: 1/4;
+    grid-column: 2/11;
+
+    @include tablet-breakpoint-down {
+      grid-row: 1/3;
+      grid-column: 2/11;
+    }
+
+    .one {
+      transform: translateY(25vw);
+      transition: transform 0.9s ease-in-out;
+      transition-delay: 0.8s;
+      &.Clicked {
+        transform: translateY(0vw);
+      }
+    }
+  }
+  .About {
+    @extend %GridItem;
+    grid-row: 4/7;
+    grid-column: 2/11;
+
+    @include tablet-breakpoint-down {
+      grid-row: 3/5;
+      grid-column: 2/11;
+    }
+
+    .two {
+      transform: translateY(25vw);
+      transition: transform 0.9s ease-in-out;
+      transition-delay: 0.9s;
+
+      &.Clicked {
+        transform: translateY(0vw);
+      }
+    }
+  }
+  .Projects {
+    @extend %GridItem;
+    grid-row: 7/11;
+    grid-column: 2/11;
+
+    @include tablet-breakpoint-down {
+      grid-row: 5/7;
+      grid-column: 2/11;
+    }
+
+    .three {
+      transform: translateY(25vw);
+      transition: transform 0.9s ease-in-out;
+      transition-delay: 1s;
+
+      &.Clicked {
+        transform: translateY(0vw);
+      }
+    }
+  }
+  .Contact {
+    @extend %GridItem;
+    grid-row: 11/13;
+    grid-column: 2/11;
+
+    @include tablet-breakpoint-down {
+      grid-row: 7/9;
+      grid-column: 2/11;
+    }
+
+    .four {
+      transform: translateY(25vw);
+      transition: transform 0.9s ease-in-out;
+      transition-delay: 1.1s;
+
+      &.Clicked {
+        transform: translateY(0vw);
+      }
+    }
+  }
+  .Socials {
+    border: 1px rgba(0, 0, 0, 0.1) solid;
+    grid-row: 2/13;
+    grid-column: 11/13;
+  }
+  .CloseButton {
+    @extend %GridItem;
+
+    font-size: 2.5rem;
+    grid-row: 1/2;
+    grid-column: 11/13;
+    justify-content: center;
+
+    @include tablet-breakpoint-down {
+      grid-row: 9/11;
+      grid-column: 2/5;
+      justify-content: flex-start;
+      padding-left: 8px;
+      font-size: 1rem;
+    }
+
+    .five {
+      transform: translateY(25vw);
+      transition: transform 0.9s ease-in-out;
+      transition-delay: 1.1s;
+
+      &.Clicked {
+        transform: translateY(0vw);
+      }
+    }
+  }
+}
+
+.MenuUpOverlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+
+  background-color: transparent;
+  z-index: 40;
+  pointer-events: none;
+  &.Clicked {
+    background-color: #fafffd;
+    transition-property: background-color;
+    transition-delay: 1.5s;
+  }
+}
+%MenuSection {
+  position: fixed;
+  width: 34vw;
+  height: 100vh;
+  background-color: #fafffd;
+  z-index: 30;
+  pointer-events: none;
+  bottom: -100vh;
+  border: 1px rgba(0, 0, 0, 0.1) solid;
+  &.Clicked {
+    bottom: 0vh;
+    border-color: rgba(0, 0, 0, 0);
+  }
+}
+.MenuLeft {
+  @extend %MenuSection;
+  left: 0vw;
+
+  transition: bottom 0.9s cubic-bezier(0.29, 1.01, 1, -0.68),
+    border-color 0.5s ease-out 1.5s;
+}
+.MenuMid {
+  @extend %MenuSection;
+  left: 34vw;
+  transition: bottom 0.9s cubic-bezier(0.29, 1.01, 1, -0.68) 0.3s,
+    border-color 0.5s ease-out 1.5s;
+}
+.MenuRight {
+  @extend %MenuSection;
+  left: 68vw;
+  transition: bottom 0.9s cubic-bezier(0.29, 1.01, 1, -0.68) 0.6s,
+    border-color 0.5s ease-out 1.5s;
+}

@@ -3,7 +3,7 @@ import styles from "./Conveyer.module.scss";
 export default function Conveyer(props) {
   return (
     <div className={styles.Container}>
-      <div id="getStarted" className={styles.ConveyerWrapper}>
+      <div id="about" className={styles.ConveyerWrapper}>
         <div className={styles.Conveyer}>
           LETS GET STARTED
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -30,7 +30,7 @@ export default function Conveyer(props) {
           LET'S GET STARTED &nbsp;
         </div>
       </div>
-      <div className={styles.Overlay}>PROJECTS - PROJECTS - PROJECTS</div>
+      <div className={styles.Overlay}>ABOUT ME &#x2022; ABOUT ME</div>
     </div>
   );
 }
