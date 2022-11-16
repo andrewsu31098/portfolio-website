@@ -1,4 +1,5 @@
 @import "../../../../styles/utilities/colors";
+@import "../../../../styles/utilities/breakpoints";
 
 .AboutWrapper {
   position: relative;
@@ -13,6 +14,12 @@
   font-size: 19rem;
   font-size: 17vw;
   color: lighten($black-75, 10%);
+  @include laptop-breakpoint-down {
+    top: calc(100px - 4vw);
+  }
+  @include tablet-breakpoint-down {
+    top: calc(-80px);
+  }
 }
 
 .AboutFlex {
@@ -21,11 +28,25 @@
   width: fit-content;
   padding-inline: 160px;
   margin-top: 240px;
+
+  @include laptop-breakpoint-down {
+    padding-inline: 80px;
+  }
+  @include tablet-breakpoint-down {
+    padding-inline: 24px;
+    margin-top: 40px;
+    flex-direction: column;
+  }
+
   .ImageWrapper {
     flex: 1 1 0;
     max-width: 1000px;
     display: flex;
     align-items: flex-start;
+
+    @include tablet-breakpoint-down {
+      margin-top: 40px;
+    }
     img {
       object-fit: scale-down;
       max-width: 100%;
@@ -38,6 +59,12 @@
     display: flex;
     flex-direction: column;
 
+    @include tablet-breakpoint-down {
+      padding-top: 40px;
+    }
+    @include mobile-breakpoint-down {
+      padding-top: 0px;
+    }
     .Name {
       font-size: 6rem;
       color: white;
@@ -62,7 +89,7 @@
       display: flex;
     }
     .HobbyComponent {
-      flex: 0 1 auto;
+      flex: 0 1;
       margin-right: 16px;
       border: 1px $black-50 solid;
       border-radius: 8px;
@@ -98,6 +125,7 @@
           width: 80px;
           height: 80px;
           margin-right: 32px;
+          margin-top: 32px;
           .SpinBorder {
             position: absolute;
             left: 0;
@@ -112,6 +140,29 @@
             }
           }
         }
+      }
+    }
+    @include laptop-breakpoint-down {
+      .Name {
+        font-size: 5rem;
+      }
+      .Title {
+        padding-top: 16px;
+        font-size: 1.5rem;
+      }
+      .Description {
+        font-size: 1.5rem;
+      }
+    }
+    @include mobile-breakpoint-down {
+      .Name {
+        font-size: 4rem;
+      }
+      .Description {
+        font-size: 1rem;
+      }
+      .HobbyComponent {
+        font-size: 1rem;
       }
     }
   }

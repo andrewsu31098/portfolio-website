@@ -29,7 +29,7 @@ export default function About(props) {
             <HobbyComponent name="Cooking" />
           </div>
 
-          <div className={styles.SocialWrapper}>
+          {/* <div className={styles.SocialWrapper}>
             <div className={styles.SocialFlex}>
               <div className={styles.IconWrapper}>
                 <IconContext.Provider
@@ -68,7 +68,7 @@ export default function About(props) {
                 <div className={styles.SpinBorder}></div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
         <div className={styles.ImageWrapper}>
           <img src={filterPhoto} alt="Photo of Developer" />
