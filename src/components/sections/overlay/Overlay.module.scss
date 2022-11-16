@@ -1,4 +1,5 @@
 @import "../../../../styles/utilities/colors";
+@import "../../../../styles/utilities/breakpoints";
 
 .Overlay {
   position: absolute;
@@ -17,20 +18,22 @@
   }
 }
 
-$fontSize: 150px;
 %WordFloat {
   position: absolute;
   animation-name: leftRight;
   animation-duration: 1s;
   animation-fill-mode: forwards;
   opacity: 0;
-  font-size: $fontSize;
+  font-size: 10vw;
   margin: 0px;
   line-height: 0px;
   color: lighten($white, 10%);
   z-index: 10;
 
-  left: 152px;
+  left: clamp(16px, 6vw, 152px);
+
+  @include laptop-breakpoint-down {
+  }
 }
 
 .Design {

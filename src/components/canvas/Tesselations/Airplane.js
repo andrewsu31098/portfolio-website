@@ -6,8 +6,13 @@ import * as TWEEN from "@tweenjs/tween.js";
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
+import { laptopQuery, mobileQuery } from "../../../utilities/breakpoints";
+import { useMediaQuery } from "react-responsive";
 
 export default function Airplane(props) {
+  const isLaptop = useMediaQuery({ query: laptopQuery });
+  const isMobile = useMediaQuery({ query: mobileQuery });
+
   //SETUP
   function firstFly(curx, cury) {
     var tmpTween = new TWEEN.Tween({ rz: mesh.current.rotation.z })
@@ -117,6 +122,15 @@ export default function Airplane(props) {
     startTween.start();
   }, []);
 
+  // Responsive Plane End Position
+  var finalVector = new THREE.Vector3(0.6, -0.2, 9.2);
+  if (isLaptop) {
+    finalVector = new THREE.Vector3(0.3, -0.2, 9.2);
+  }
+  if (isMobile) {
+    finalVector = new THREE.Vector3(0.2, -0.2, 9.2);
+  }
+
   // CURVE TEST
   const catCurve = new THREE.CatmullRomCurve3([
     // Left shift 5 x
@@ -127,7 +141,7 @@ export default function Airplane(props) {
 
     new THREE.Vector3(1, 1.4, 7),
     new THREE.Vector3(0, 0.4, 7),
-    new THREE.Vector3(0.6, -0.2, 9.2),
+    finalVector,
   ]);
 
   const points = catCurve.getPoints(50);
