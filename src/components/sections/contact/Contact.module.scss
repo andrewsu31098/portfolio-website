@@ -1,31 +1,113 @@
+@import "../../../../styles/utilities/colors";
+@import "../../../../styles/utilities/breakpoints";
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
+}
+
 .ContactWrapper {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  padding-block: 160px;
+  flex-direction: column;
 
-  .IconWrapper {
-    position: relative;
+  height: 400px;
+  padding-block-end: 120px;
+
+  // Makes animation play when .OnStart Class is assigned.
+  &.OnStart {
+    %ParentCall {
+      overflow: hidden;
+      border-right: 0.15em solid transparent;
+      white-space: nowrap;
+      margin: 0 auto;
+      letter-spacing: 0.15em;
+      animation: typing 2s steps(23, end), blink-caret 1s step-end 2;
+      animation-fill-mode: forwards;
+      width: 0;
+    }
+    .Call1 {
+      @extend %ParentCall;
+      animation-delay: 1s;
+    }
+    .Call2 {
+      @extend %ParentCall;
+      animation-delay: 3s;
+    }
+    .Call3 {
+      @extend %ParentCall;
+      animation-delay: 5.5s;
+    }
+  }
+  .ContactCall {
+    flex: 1 1 0;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-block-end: 80px;
+    @include mobile-breakpoint-down {
+      font-size: 1rem;
+    }
+    .Call1 {
+      width: 0;
+      overflow: hidden;
+    }
+    .Call2 {
+      width: 0;
+      overflow: hidden;
+    }
+    .Call3 {
+      width: 0;
+      overflow: hidden;
+    }
+  }
+  .ContactFlex {
+    flex: 1 1 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: 1 1 80;
-    padding: 1.5rem;
-    width: 80px;
-    height: 80px;
-    margin-right: 32px;
-    .SpinBorder {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      border: 3px white dashed;
-      border-radius: 50%;
-      transition: transform 5s ease-out;
-      &:hover {
-        transform: rotate(360deg);
+    .IconWrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1 1 80;
+      padding: 1.5rem;
+      width: 80px;
+      height: 80px;
+      margin-inline: 16px;
+      .SpinBorder {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border: 3px white dashed;
+        border-radius: 50%;
+        transition: transform 5s ease-out;
+        &:hover {
+          transform: rotate(360deg);
+        }
       }
     }
+  }
+
+  .ContactSubtitle {
+    display: flex;
+    width: 100%;
+    justify-content: center;
   }
 }

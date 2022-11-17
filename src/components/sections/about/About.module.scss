@@ -6,6 +6,10 @@
   margin-block-end: 160px;
   display: flex;
   justify-content: center;
+
+  @include laptop-breakpoint-down {
+    margin-block-end: 40px;
+  }
 }
 
 .AboutCloud {
@@ -46,7 +50,12 @@
 
     @include tablet-breakpoint-down {
       margin-top: 40px;
+      justify-content: center;
+      .ImageFlex {
+        max-width: 400px;
+      }
     }
+
     img {
       object-fit: scale-down;
       max-width: 100%;
@@ -115,6 +124,11 @@
         justify-content: flex-end;
         padding-right: 64px;
 
+        @include tablet-breakpoint-down {
+          justify-content: center;
+          padding-right: 0px;
+        }
+
         .IconWrapper {
           position: relative;
           display: flex;
@@ -126,6 +140,14 @@
           height: 80px;
           margin-right: 32px;
           margin-top: 32px;
+
+          @include tablet-breakpoint-down {
+            width: 72px;
+            height: 72px;
+            margin-right: 16px;
+            margin-top: 16px;
+          }
+
           .SpinBorder {
             position: absolute;
             left: 0;

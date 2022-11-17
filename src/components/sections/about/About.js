@@ -29,49 +29,61 @@ export default function About(props) {
             <HobbyComponent name="Cooking" />
           </div>
 
-          {/* <div className={styles.SocialWrapper}>
+          <div className={styles.SocialWrapper}>
             <div className={styles.SocialFlex}>
-              <div className={styles.IconWrapper}>
-                <IconContext.Provider
-                  value={{
-                    size: "50px",
-                    color: "white",
-                  }}
-                >
-                  <AiFillLinkedin />
-                </IconContext.Provider>
+              <a
+                href="https://www.linkedin.com/in/andrew-s-a1a9a0159/"
+                target="_blank"
+              >
+                <div className={styles.IconWrapper}>
+                  <IconContext.Provider
+                    value={{
+                      size: "50px",
+                      color: "white",
+                    }}
+                  >
+                    <AiFillLinkedin />
+                  </IconContext.Provider>
 
-                <div className={styles.SpinBorder}></div>
-              </div>
-              <div className={styles.IconWrapper}>
-                <IconContext.Provider
-                  value={{
-                    size: "50px",
-                    color: "white",
-                  }}
-                >
-                  <AiOutlineGithub />
-                </IconContext.Provider>
+                  <div className={styles.SpinBorder}></div>
+                </div>
+              </a>
+              <a href="https://github.com/andrewsu31098" target="_blank">
+                <div className={styles.IconWrapper}>
+                  <IconContext.Provider
+                    value={{
+                      size: "50px",
+                      color: "white",
+                    }}
+                  >
+                    <AiOutlineGithub />
+                  </IconContext.Provider>
 
-                <div className={styles.SpinBorder}></div>
-              </div>
-              <div className={styles.IconWrapper}>
-                <IconContext.Provider
-                  value={{
-                    size: "50px",
-                    color: "white",
-                  }}
-                >
-                  <AiOutlineMail />
-                </IconContext.Provider>
+                  <div className={styles.SpinBorder}></div>
+                </div>
+              </a>
 
-                <div className={styles.SpinBorder}></div>
-              </div>
+              <a href="mailto:avsu@uci.edu">
+                <div className={styles.IconWrapper}>
+                  <IconContext.Provider
+                    value={{
+                      size: "50px",
+                      color: "white",
+                    }}
+                  >
+                    <AiOutlineMail />
+                  </IconContext.Provider>
+
+                  <div className={styles.SpinBorder}></div>
+                </div>
+              </a>
             </div>
-          </div> */}
+          </div>
         </div>
         <div className={styles.ImageWrapper}>
-          <img src={filterPhoto} alt="Photo of Developer" />
+          <div className={styles.ImageFlex}>
+            <img src={filterPhoto} alt="Photo of Developer" />
+          </div>
         </div>
       </div>
     </div>
