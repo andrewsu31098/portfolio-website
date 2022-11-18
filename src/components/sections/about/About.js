@@ -21,8 +21,8 @@ export default function About(props) {
             in Computer Science and a specialization in Information. <br />
             In my courses, I developed a broad array of software, ranging from
             microcontrollers to search engines. And ultimately, I chose web
-            development because I enjoyed the process of design and planning a
-            great website the most rewarding.
+            development because I enjoyed the process of designing and planning
+            a great website the most.
           </div>
           <div className={styles.HobbyTitle}>Hobbies</div>
           <div className={styles.HobbiesFlex}>
