@@ -42,15 +42,15 @@
     }
     .Call1 {
       @extend %ParentCall;
-      animation-delay: 1s;
+      animation-delay: 0.5s;
     }
     .Call2 {
       @extend %ParentCall;
-      animation-delay: 3s;
+      animation-delay: 2.5s;
     }
     .Call3 {
       @extend %ParentCall;
-      animation-delay: 5.5s;
+      animation-delay: 5s;
     }
   }
   .ContactCall {

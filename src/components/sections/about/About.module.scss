@@ -14,15 +14,12 @@
 
 .AboutCloud {
   position: absolute;
-  top: calc(100px - 8vw);
-  font-size: 19rem;
+  top: calc(240px - 12vw);
   font-size: 17vw;
   color: lighten($black-75, 10%);
-  @include laptop-breakpoint-down {
-    top: calc(100px - 4vw);
-  }
+  line-height: 17vw;
   @include tablet-breakpoint-down {
-    top: calc(-80px);
+    top: -12vw;
   }
 }
 

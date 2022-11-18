@@ -46,7 +46,7 @@
 }
 .Development {
   @extend %WordFloat;
-  top: 300px;
+  top: calc(160px + 1.5em);
   animation-delay: 2s;
   span:nth-child(1) {
     color: $pink;
@@ -58,7 +58,8 @@
     color: $pink;
   }
 
-  top: 440px;
+  top: calc(160px + 3em);
+
   animation-delay: 3s;
 }
 

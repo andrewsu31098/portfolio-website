@@ -21,7 +21,7 @@ export default function Project(props) {
         <div className={styles.VideoWrapper}>
           <div className={styles.Darken}></div>
 
-          <video src={blog} autoPlay loop muted></video>
+          <video src={blog} autoPlay loop muted playsinline></video>
         </div>
         <div className={styles.InfoWrapper}>
           <div className={styles.Title}>Personal Blog Website</div>
@@ -40,7 +40,7 @@ export default function Project(props) {
           </div>
         </div>
         <div className={styles.VideoWrapper}>
-          <video src={weather} autoPlay loop muted></video>
+          <video src={weather} autoPlay loop muted playsinline></video>
         </div>
         <div className={styles.InfoWrapper}>
           <div className={styles.Title}>Minimalist Weather Website</div>
@@ -60,7 +60,7 @@ export default function Project(props) {
         </div>
         <div className={styles.VideoWrapper}>
           <div className={styles.Darken}></div>
-          <video src={distance} autoPlay loop muted></video>
+          <video src={distance} autoPlay loop muted playsinline></video>
         </div>
         <div className={styles.InfoWrapper}>
           <div className={styles.Title}>Distance Guesser Game</div>

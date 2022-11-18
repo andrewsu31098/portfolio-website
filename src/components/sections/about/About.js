@@ -18,9 +18,11 @@ export default function About(props) {
           <div className={styles.Title}>A Web Developer</div>
           <div className={styles.Description}>
             I graduated from University of California, Irvine with a bachelors
-            in Computer Science and a specialization in Information. There, I
-            enjoyed coding microcontrollers, a search engine, and a compiler.
-            But ultimately web development is what interested me the most.
+            in Computer Science and a specialization in Information. <br />
+            There, I enjoyed coding microcontrollers, a search engine, and a
+            compiler.
+            <br /> But ultimately, web development is what interested me the
+            most.
           </div>
           <div className={styles.HobbyTitle}>Hobbies</div>
           <div className={styles.HobbiesFlex}>
