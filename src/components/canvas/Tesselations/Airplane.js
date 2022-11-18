@@ -6,10 +6,15 @@ import * as TWEEN from "@tweenjs/tween.js";
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
-import { laptopQuery, mobileQuery } from "../../../utilities/breakpoints";
+import {
+  desktopQuery,
+  laptopQuery,
+  mobileQuery,
+} from "../../../utilities/breakpoints";
 import { useMediaQuery } from "react-responsive";
 
 export default function Airplane(props) {
+  const isDesktop = useMediaQuery({ query: desktopQuery });
   const isLaptop = useMediaQuery({ query: laptopQuery });
   const isMobile = useMediaQuery({ query: mobileQuery });
 
@@ -123,7 +128,10 @@ export default function Airplane(props) {
   }, []);
 
   // Responsive Plane End Position
-  var finalVector = new THREE.Vector3(0.6, -0.2, 9.2);
+  var finalVector = new THREE.Vector3(0.5, -0.2, 9.2);
+  if (isDesktop) {
+    finalVector = new THREE.Vector3(0.3, -0.2, 9.2);
+  }
   if (isLaptop) {
     finalVector = new THREE.Vector3(0.3, -0.2, 9.2);
   }

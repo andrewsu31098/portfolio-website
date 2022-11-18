@@ -46,8 +46,13 @@
 }
 .Development {
   @extend %WordFloat;
-  top: calc(160px + 1.5em);
+  top: calc(160px + 1em);
   animation-delay: 2s;
+
+  @include laptop-breakpoint-down {
+    top: calc(160px + 1.5em);
+  }
+
   span:nth-child(1) {
     color: $pink;
   }
@@ -58,7 +63,11 @@
     color: $pink;
   }
 
-  top: calc(160px + 3em);
+  top: calc(160px + 2em);
+
+  @include laptop-breakpoint-down {
+    top: calc(160px + 3em);
+  }
 
   animation-delay: 3s;
 }
