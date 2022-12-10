@@ -27,7 +27,7 @@ export default function About(props) {
           <div className={styles.HobbyTitle}>Hobbies</div>
           <div className={styles.HobbiesFlex}>
             <HobbyComponent name="Working Out" />{" "}
-            <HobbyComponent name="Spending Money" />
+            <HobbyComponent name="Hiking" />
             <HobbyComponent name="Cooking" />
           </div>
 

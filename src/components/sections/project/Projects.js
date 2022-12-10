@@ -5,15 +5,44 @@ import blog from "../../../assets/videos/blog.mp4";
 
 import { useMediaQuery } from "react-responsive";
 import { tabletQuery } from "../../../utilities/breakpoints";
+import { useState, useRef, useEffect } from "react";
 
 function TechComponent(props) {
   return <div className={styles.TechComponent}>{props.name}</div>;
 }
 
 export default function Project(props) {
-  const isTablet = useMediaQuery({
-    query: tabletQuery,
-  });
+  const [isVisible, setVisible] = useState(false);
+  const videoRef1 = useRef(null);
+  const videoRef2 = useRef(null);
+  const videoRef3 = useRef(null);
+
+  useEffect(() => {
+    if (videoRef1.current && isVisible) {
+      videoRef1.current.play();
+    }
+  }, [videoRef1]);
+  useEffect(() => {
+    if (videoRef2.current && isVisible) {
+      videoRef2.current.play();
+    }
+  }, [videoRef2]);
+  useEffect(() => {
+    if (videoRef3.current && isVisible) {
+      videoRef3.current.play();
+    }
+  }, [videoRef3]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) =>
+        entry.isIntersecting ? setVisible(true) : null
+      );
+    });
+    observer.observe(videoRef1.current);
+    observer.observe(videoRef2.current);
+    observer.observe(videoRef3.current);
+  }, []);
 
   return (
     <div className={styles.ProjectWrapper}>
@@ -21,7 +50,15 @@ export default function Project(props) {
         <div className={styles.VideoWrapper}>
           <div className={styles.Darken}></div>
 
-          <video src={blog} autoplay autoPlay loop muted playsinline></video>
+          <video
+            ref={videoRef1}
+            src={blog}
+            autoplay
+            autoPlay
+            loop
+            muted
+            playsinline
+          ></video>
         </div>
         <div className={styles.InfoWrapper}>
           <div className={styles.Title}>Personal Blog Website</div>
@@ -40,7 +77,15 @@ export default function Project(props) {
           </div>
         </div>
         <div className={styles.VideoWrapper}>
-          <video src={weather} autoplay autoPlay loop muted playsinline></video>
+          <video
+            ref={videoRef2}
+            src={weather}
+            autoplay
+            autoPlay
+            loop
+            muted
+            playsinline
+          ></video>
         </div>
         <div className={styles.InfoWrapper}>
           <div className={styles.Title}>Minimalist Weather Website</div>
@@ -61,6 +106,7 @@ export default function Project(props) {
         <div className={styles.VideoWrapper}>
           <div className={styles.Darken}></div>
           <video
+            ref={videoRef3}
             src={distance}
             autoplay
             autoPlay
