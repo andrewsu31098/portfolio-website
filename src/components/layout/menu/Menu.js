@@ -16,9 +16,7 @@ export default function Menu(props) {
         <AiOutlinePlus AiOutlinePlus />
         Menu
       </div>
-      <div
-        className={`${styles.MenuOverlay} ${menuState ? styles.Clicked : null}`}
-      ></div>
+      <div></div>
       <div
         className={`${styles.MenuGrid} ${menuState ? styles.Clicked : null}`}
       >
